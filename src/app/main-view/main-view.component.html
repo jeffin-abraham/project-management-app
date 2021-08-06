@@ -19,18 +19,19 @@
                         <button mat-raised-button (click)="addTask(i, task.value)">Add</button>                             
                     </div>
 
-                    <div class="listbg">
+                    <!-- <div class="listbg">
                         <ul *ngFor="let item of list" class="listrw">
                             <li class="deletebtn">{{item.name}}<button mat-raised-button (click)="removeTask(item.id)">Delete</button></li>
                         </ul>
-                    </div>
+                    </div> -->
         
                     <div class="tasks-container"
                         cdkDropList
                         [cdkDropListData]="column.tasks"
                         (cdkDropListDropped)="drop($event)">
-                        <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+                        <div class="task" *ngFor="let item of column.tasks; let j = index" cdkDrag>
                             {{item}}
+                            <button mat-raised-button (click)="removeTask(i, j)">Delete</button>
                         </div>
                     </div>
                 </div>

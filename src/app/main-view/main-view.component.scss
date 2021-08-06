@@ -18,7 +18,7 @@
 
 .bg-image {
     background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
-    height: 100vh;
+    height: calc(100vh - 62px);
     background-size: cover;
     overflow-y: auto !important;
 }

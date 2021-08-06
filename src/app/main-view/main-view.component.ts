@@ -9,30 +9,58 @@ import { Board } from 'src/app/models/board.model';
   styleUrls: ['./main-view.component.scss']
 })
 export class MainViewComponent implements OnInit {
+  
+  // board: Board = new Board('Test Board',[
+  //   new Column ('Ideas',[]),
+  //   new Column ('Rearch',[]),
+  //   new Column ('Todo',[]),
+  //   new Column ('Done',[])
+  // ]);
 
-  list:any[] = [];
+  // this.board.columns[boardIndex].tasks[taskIndex] will get a specific task
+  board: Board = {
+    name: 'Test Board',
+    columns: [
+      {
+        name: 'Ideas',
+        tasks: []
+      },
+      {
+        name: 'Research',
+        tasks: []
+      },
+      {
+        name: 'Todo',
+        tasks: []
+      },
+      {
+        name: 'Done',
+        tasks: []
+      }
+    ]
+  }
 
-  addTask(columnIndex: number, item:string){
-    this.list.push({id:this.list.length, name:item})
+  list: any[] = [];
+
+  addTask(columnIndex: number, item: string){
+    this.list.push({id: this.list.length, name: item})
 
     this.board.columns[columnIndex].tasks.push(item);
 
     console.warn(this.list);
   }
 
-  removeTask(id:number){
-    this.list = this.list.filter(item=>item.id !== id);
-    console.warn(id);
+
+  removeTask(boardIndex: number, taskIndex: number){
+    // this.list = this.list.filter(item=>item.id !== id);
+    const tasks = this.board.columns[boardIndex].tasks;
+
+    tasks.splice(taskIndex, 1);
+    // console.warn(id);
   }
 
   constructor() { }
 
-  board: Board = new Board('Test Board',[
-    new Column ('Ideas',[]),
-    new Column ('Rearch',[]),
-    new Column ('Todo',[]),
-    new Column ('Done',[])
-  ]);
 
   ngOnInit(): void {
   }
