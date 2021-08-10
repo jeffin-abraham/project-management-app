@@ -15,8 +15,8 @@
                         {{ column.name }}
                     </div>
                     <div class="input-form">
-                        <input type="text" placeholder="Add a new item" #task>
-                        <button mat-raised-button (click)="addTask(i, task.value)">Add</button>                             
+                        <input type="text" placeholder="Add a new item" [(ngModel)]="board.columns[i].newItem">
+                        <button mat-raised-button (click)="addTask(i)">Add</button>                             
                     </div>
         
                     <div class="tasks-container"

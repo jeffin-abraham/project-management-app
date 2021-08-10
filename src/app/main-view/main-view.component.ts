@@ -10,34 +10,44 @@ import { Board } from 'src/app/models/board.model';
 })
 export class MainViewComponent implements OnInit {
   
+  newItem: string="";
+
   board: Board = {
     name: 'Test Board',
     columns: [
       {
         name: 'Ideas',
-        tasks: []
+        tasks: [],
+        newItem: ""
       },
       {
         name: 'Research',
-        tasks: []
+        tasks: [],
+        newItem: ""
       },
       {
         name: 'Todo',
-        tasks: []
+        tasks: [],
+        newItem: ""
       },
       {
         name: 'Done',
-        tasks: []
+        tasks: [],
+        newItem: ""
       }
     ]
   }
 
   list: any[] = [];
 
-  addTask(columnIndex: number, item: string){
-    this.list.push({id: this.list.length, name: item})
-    this.board.columns[columnIndex].tasks.push(item);
-    console.warn(this.list);
+  addTask(columnIndex: number){
+    const newItem = this.board.columns[columnIndex].newItem;
+    if(newItem) {
+      this.list.push({id: this.list.length, name: newItem})
+      this.board.columns[columnIndex].tasks.push(newItem);
+      console.warn(this.list);
+      this.board.columns[columnIndex].newItem = "";
+    }
   }
 
 
