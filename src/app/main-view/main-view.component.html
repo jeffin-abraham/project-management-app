@@ -18,12 +18,6 @@
                         <input type="text" placeholder="Add a new item" #task>
                         <button mat-raised-button (click)="addTask(i, task.value)">Add</button>                             
                     </div>
-
-                    <!-- <div class="listbg">
-                        <ul *ngFor="let item of list" class="listrw">
-                            <li class="deletebtn">{{item.name}}<button mat-raised-button (click)="removeTask(item.id)">Delete</button></li>
-                        </ul>
-                    </div> -->
         
                     <div class="tasks-container"
                         cdkDropList

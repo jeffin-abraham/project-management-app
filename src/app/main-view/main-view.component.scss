@@ -17,7 +17,7 @@
 }
 
 .bg-image {
-    background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1627842468152-62f95538037a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
     height: calc(100vh - 62px);
     background-size: cover;
     overflow-y: auto !important;
@@ -91,13 +91,6 @@
     justify-content: space-between;
     padding: 10px;
 }
-
-.deletebtn{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
   
 .tasks-container {
     flex-grow: 1;
@@ -105,6 +98,7 @@
 
 .task {
     display: flex;
+    justify-content: space-between;
     padding: 15px 12px;
     background: white;
     border-bottom: solid 1px #ddd;

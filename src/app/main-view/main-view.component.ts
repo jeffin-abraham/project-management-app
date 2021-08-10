@@ -10,14 +10,6 @@ import { Board } from 'src/app/models/board.model';
 })
 export class MainViewComponent implements OnInit {
   
-  // board: Board = new Board('Test Board',[
-  //   new Column ('Ideas',[]),
-  //   new Column ('Rearch',[]),
-  //   new Column ('Todo',[]),
-  //   new Column ('Done',[])
-  // ]);
-
-  // this.board.columns[boardIndex].tasks[taskIndex] will get a specific task
   board: Board = {
     name: 'Test Board',
     columns: [
@@ -44,19 +36,14 @@ export class MainViewComponent implements OnInit {
 
   addTask(columnIndex: number, item: string){
     this.list.push({id: this.list.length, name: item})
-
     this.board.columns[columnIndex].tasks.push(item);
-
     console.warn(this.list);
   }
 
 
   removeTask(boardIndex: number, taskIndex: number){
-    // this.list = this.list.filter(item=>item.id !== id);
     const tasks = this.board.columns[boardIndex].tasks;
-
     tasks.splice(taskIndex, 1);
-    // console.warn(id);
   }
 
   constructor() { }
