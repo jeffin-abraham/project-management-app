@@ -6,9 +6,20 @@
     margin: 2px;
 }
 
+.nav-styled {
+    flex: 0 1 auto;
+    background-color: #1e2e22;
+}
 
-.btn{
-    font-size: 17px;
-    margin: 5px;
+.btn {
+    font-size: 21px;
     color: white;
+    margin: 10px 10px 10px 10px;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 50px;  
 }

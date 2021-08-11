@@ -1,40 +1,43 @@
-<div class="bg-image">
-    <div class="root">
-        <div class="board">
-        
-        <div class="board-bar">
-            <p class="board-name">{{ board.name }}</p>
-        </div>
-        
-        <div class="board-wrapper">
-        
-            <div class="board-columns" cdkDropListGroup>
-                <div class="board-column" *ngFor="let column of board.columns; let i = index">
-        
-                    <div class="column-title">
-                        {{ column.name }}
-                    </div>
-                    <div class="input-form">
-                        <input type="text" placeholder="Add a new item" [(ngModel)]="board.columns[i].newItem">
-                        <button mat-raised-button (click)="addTask(i)">Add</button>                             
-                    </div>
-        
-                    <div class="tasks-container"
-                        cdkDropList
-                        [cdkDropListData]="column.tasks"
-                        (cdkDropListDropped)="drop($event)">
-                        <div class="task" *ngFor="let item of column.tasks; let j = index" cdkDrag>
+<div class="board bg-image">
+
+    <div class="board-bar">
+        <p class="board-name">{{ board.name }}</p>
+    </div>
+    
+    <div class="board-wrapper">
+    
+        <div class="board-columns" cdkDropListGroup> <!--Containing all columns-->
+
+            <div class="board-column" *ngFor="let column of board.columns; let i = index"> <!--Individual column-->
+    
+                <div class="column-title">
+                    {{ column.name }}
+                </div>
+                
+                <div class="input-form">
+                    <input class="holo-input" type="text" placeholder="Add a new item" [(ngModel)]="board.columns[i].newItem">
+                    <button mat-mini-fab class="fab-styled" (click)="addTask(i)"><mat-icon>add</mat-icon></button>                             
+                </div>
+    
+                <div class="tasks-container"
+                    cdkDropList
+                    [cdkDropListData]="column.tasks"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="task show-delete" *ngFor="let item of column.tasks; let j = index" cdkDrag>
+                        <div class="task-text">
                             {{item}}
-                            <button mat-raised-button (click)="removeTask(i, j)">Delete</button>
                         </div>
+                        <div class="simple-divider"></div>
+                        <button class="task-delete-btn" mat-mini-fab (click)="removeTask(i, j)"><mat-icon>remove</mat-icon></button> <!--optional icon: delete_forever-->
                     </div>
                 </div>
-        
-                </div>
-        
             </div>
     
         </div>
     
     </div>
+
 </div>
+
+
+

@@ -1,7 +1,14 @@
-.root {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+$shade:     #081108;
+$forest:    #1e2e22;
+$sage:      #3e573f;
+$pale-sage: #93a988;
+$sky:       #7892a0;
+$cloud:     #cfd9de;
+
+::placeholder { /* adjusts placeholder text in input box */
+    color: $shade;
+    opacity: 40%;
+    font-size: 16px;
 }
 
 .app-name {
@@ -10,34 +17,46 @@
     font-weight: bold;
 }
 
-.has-gradient-text {
-    background: -webkit-linear-gradient(#13f7f4, #2af598);
-    // -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.bg-image {
+    background-color: $shade;
+    background-image: linear-gradient(rgba(128, 128, 128, 0.45), rgba(48, 48, 48, 0.55)), url('https://imgpile.com/images/7PRuna.png'); 
+
+    background-size: cover;
+    height: 100vh;
+    overflow-y: auto !important;
 }
 
-.bg-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1627842468152-62f95538037a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
-    height: calc(100vh - 62px);
-    background-size: cover;
-    overflow-y: auto !important;
+.holo-input {
+    border: 2px solid $sky;
+    border-radius: 40px;
+    height: 40px;
+    padding: 0 11px;
+    font-size: 16px;
+    background-color: unset;
+    overflow: hidden;
+    
+    &:focus {
+        background-color: white;
+        outline: none;
+        transition: ease 100ms;
+        box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.55);
+    }
 }
 
 .board {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-
-    min-width: 0;
-    min-height: 0;
+    height: 100vh;
 
     .board-bar{
-        background-color: rgba(gray, 0.5);
-        padding: 8px 15px;
+        background-color: $sage;
+        padding: 15px 0px 15px 0px;
+        text-align: center;
 
         .board-name {
-            font-size: 20px;
-            font-weight: bold;
+            margin: 0;
+            font-size: 21px;
             color: white;
         }
     }
@@ -45,30 +64,35 @@
     .board-wrapper{
         display: flex;
         flex-grow: 1;
-        overflow-x: auto;
+        overflow-y: hidden !important;
 
         .board-columns{
             display: flex;
             flex-grow: 1;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            overflow-y: auto !important;
+            
+
 
             .board-column{
                 display: flex;
                 flex-direction: column;
-                flex-grow: 1;
-
-                min-width: 300px;
+                max-width: 300px; //Column width
+                height: 75vh;
                 margin: 50px;
                 padding: 25px;
-
-                border-radius: 5px;
-
-                background: rgba(white, 0.5);
+                border: 2px solid $sky;
+                border-radius: 12px;
+                background: rgba($cloud, 0.65);
+                box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.65);
 
                 &:not(:first-child){
                     margin-left: 0;
                 }
 
                 .column-title{
+                    color: $shade;
                     font-size: 20px;
                     font-weight: 800;
                     font-family: 'Lato', sans-serif;
@@ -83,12 +107,15 @@
 
 .column-title{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    color: #081108;
 }
 
 .input-form{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    background-color: $sky;
+    border-radius: 40px;
     padding: 10px;
 }
   
@@ -98,15 +125,34 @@
 
 .task {
     display: flex;
-    justify-content: space-between;
-    padding: 15px 12px;
-    background: white;
+    justify-content: flex-end;
+    padding: 12px;
+    background: $sky;
     border-bottom: solid 1px #ddd;
-    border-radius: 4px;
-
-    margin-bottom: 15px;
+    border: 2px solid $sky;
+    border-radius: 8px;
+    margin-top: 15px;
+    color: $cloud;
 
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05), 0 3px 14px 2px rgba(0, 0, 0, 0.05);
+}
+
+.task-text {
+    flex-grow:1;
+    padding-right: 5px;
+    font-size: 18px !important;
+}
+
+.task-delete-btn, .fab-styled {
+    color: $sky;
+    background-color: $cloud;
+}
+
+.simple-divider {
+    border-left: 3px solid $shade;
+    margin-right: 11px;
+    opacity: 5%;
+    text-align: right;
 }
 
 .cdk-drag-preview {

@@ -13,7 +13,7 @@ export class MainViewComponent implements OnInit {
   newItem: string="";
 
   board: Board = {
-    name: 'Test Board',
+    name: 'Application Prototype I',
     columns: [
       {
         name: 'Ideas',

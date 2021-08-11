@@ -9,17 +9,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule} from '@angular/cdk/drag-drop';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatButtonModule } from '@angular/material/button';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
-    HomePageComponent,
-    SignUpComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     TextFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatToolbarModule,
     FormsModule
   ],
   providers: [],
